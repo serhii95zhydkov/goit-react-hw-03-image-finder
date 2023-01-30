@@ -10,7 +10,6 @@ export const ImageGalleryItem = ({
 }) => {
   return (
     <li
-      key={id}
       className={styles.galleryItem}
       onClick={() => {
         openModal(largeImageURL);
