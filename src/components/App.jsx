@@ -69,10 +69,12 @@ export class App extends Component {
     return (
       <div className={styles.app}>
         <Searchbar onSubmit={searchImages} />
-        <ImageGallery items={items} openModal={openModal} />
+        {items.length > 0 && (
+          <ImageGallery items={items} openModal={openModal} />
+        )}
         {error && <p className={styles.errorMessage}>{error}</p>}
         {loading && <Loader />}
-        {Boolean(items.length) && <Button loadMore={loadMore} />}
+        {Boolean(items.length) && !loading && <Button loadMore={loadMore} />}
         {showModal && (
           <Modal largeImageURL={largeImageURL} closeModal={closeModal}></Modal>
         )}
